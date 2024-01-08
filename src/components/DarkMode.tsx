@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
+import {
+    IoSunnyOutline,
+    IoMoonOutline,
+    IoLaptopOutline,
+} from "react-icons/io5";
+import BtnDarkMode from "./BtnDarkMode";
 
 const DarkMode = () => {
     const [theme, setTheme] = useState(
         localStorage.getItem("theme") ? localStorage.getItem("theme") : "system"
     );
+
     const element = document.documentElement;
     const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    
 
     function owWindowMatch() {
         if (
@@ -46,28 +52,16 @@ const DarkMode = () => {
     });
 
     return (
-        <div>
-            <button
-                className="text-gray-500 px-3"
-                onClick={() => {
-                    setTheme("dark");
-                }}>
-                dark
-            </button>
-            <button
-                className="text-gray-500 px-3"
-                onClick={() => {
-                    setTheme("light");
-                }}>
-                light
-            </button>
-            <button
-                className="text-gray-500 px-3"
-                onClick={() => {
-                    setTheme("system");
-                }}>
-                system
-            </button>
+        <div className="rounded-full border dark:border-[#888888] mx-auto flex items-center p-[3px]">
+            <BtnDarkMode theme={theme} value="light" setTheme={setTheme}>
+                <IoSunnyOutline />
+            </BtnDarkMode>
+            <BtnDarkMode theme={theme} value="" setTheme={setTheme}>
+                <IoLaptopOutline />
+            </BtnDarkMode>
+            <BtnDarkMode theme={theme} value="dark" setTheme={setTheme}>
+                <IoMoonOutline />
+            </BtnDarkMode>
         </div>
     );
 };

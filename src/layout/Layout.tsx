@@ -1,15 +1,17 @@
-import Navbar from '../components/Navbar'
-import { Outlet } from 'react-router-dom'
-import Footer from '../components/Footer'
+import Header from "../components/Header";
+import { Outlet } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const Layout = () => {
-  return (
-    <div className='dark:bg-black dark:text-white h-full'>
-      <Navbar />
-      <Outlet />
-      <Footer />
-    </div>
-  )
-}
+    return (
+        <div className="dark:bg-black dark:text-[#888888] text-[#666666] h-full flex flex-col">
+            <Header />
+            <main className="grow-[1]">
+                <Outlet />
+            </main>
+            <Footer />
+        </div>
+    );
+};
 
-export default Layout
+export default Layout;

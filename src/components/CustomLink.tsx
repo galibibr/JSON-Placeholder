@@ -2,13 +2,15 @@ import { Link, useMatch } from "react-router-dom";
 
 const CustomLink = ({ to, children }: { to: string; children: string }) => {
     const match = useMatch(to);
+    console.log(match);
+    
 
     return (
         <Link
             to={to}
             className={`${
-                match ? "text-blue-400" : "dark:text-white text-black"
-            }`}>
+                match ? "underline" : ""
+            } dark:hover:text-[#ededed] hover:text-black duration-150`}>
             {children}
         </Link>
     );
