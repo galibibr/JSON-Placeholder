@@ -1,29 +1,27 @@
-import { Link } from "react-router-dom";
 import DarkMode from "./DarkMode";
+import CustomLink from "./CustomLink";
 
 const Navbar = () => {
-
-
   return (
     <nav>
       <ul className="flex justify-center gap-3">
         <li>
-          <Link to="posts">Posts</Link>
+          <CustomLink to="posts">Posts</CustomLink>
         </li>
         <li>
-          <Link to="comments">Comments</Link>
+          <CustomLink to="comments">Comments</CustomLink>
         </li>
         <li>
-          <Link to="albums">Albums</Link>
+          <CustomLink to="albums">Albums</CustomLink>
         </li>
         <li>
-          <Link to="photos">Photos</Link>
+          <CustomLink to="photos">Photos</CustomLink>
         </li>
         <li>
-          <Link to="todos">Todos</Link>
+          <CustomLink to="todos">Todos</CustomLink>
         </li>
         <li>
-          <Link to="users">Users</Link>
+          <CustomLink to="users">Users</CustomLink>
         </li>
       </ul>
       <DarkMode />
