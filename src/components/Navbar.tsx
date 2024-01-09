@@ -51,7 +51,7 @@ const Navbar = () => {
                 className={`${
                     modal === "open" && "slow-modal-trans top-0 h-screen"
                 }
-                    ${modal === "default" && "-top-[500%]"} ${
+                    ${modal === "default" && "-top-[550%]"} ${
                     modal === "close" && "-top-[500%] slow-modal"
                 } absolute left-0 w-full z-50`}>
                 <ul

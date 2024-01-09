@@ -12,7 +12,7 @@ body {
 
 @keyframes openModal {
     0% {
-        top: -500%;
+        top: -550%;
     }
     100% {
         top: 0;
@@ -27,7 +27,7 @@ body {
         top: 0;
     }
     100% {
-        top: -500%;
+        top: -550%;
     }
 }
 .slow-modal {
