@@ -3,9 +3,33 @@
 @tailwind utilities;
 
 body {
-   height: 100vh;
+    height: 100vh;
 }
 
 #root {
-   height: 100%;
+    height: 100%;
+}
+
+@keyframes openModal {
+    0% {
+        top: -500%;
+    }
+    100% {
+        top: 0;
+    }
+}
+.slow-modal-trans {
+    animation: openModal 1s;
+}
+
+@keyframes closeModal {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: -500%;
+    }
+}
+.slow-modal {
+    animation: closeModal 0.7s;
 }

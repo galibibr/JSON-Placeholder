@@ -2,8 +2,6 @@ import { Link, useMatch } from "react-router-dom";
 
 const CustomLink = ({ to, children }: { to: string; children: string }) => {
     const match = useMatch(to);
-    console.log(match);
-    
 
     return (
         <Link

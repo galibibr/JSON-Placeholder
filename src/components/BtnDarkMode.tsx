@@ -16,8 +16,8 @@ const BtnDarkMode = ({
             className={`${
                 theme === value
                     ? "bg-gray-100 text-black dark:text-[#ededed] dark:bg-[#454545]"
-                    : "text-gray-500 dark:hover:text-[#ededed] hover:text-black"
-            } p-1 rounded-full`}
+                    : "dark:hover:text-[#ededed] hover:text-black"
+            } p-[4px] text-[13px] sm:text-[16px] sm:p-[5px] rounded-full`}
             onClick={() => {
                 setTheme(value);
             }}>

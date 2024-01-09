@@ -52,7 +52,7 @@ const DarkMode = () => {
     });
 
     return (
-        <div className="rounded-full border dark:border-[#888888] mx-auto flex items-center p-[3px]">
+        <div className="rounded-full border dark:border-[#4e4e4e] p-[2px] sm:p-[3px] flex justify-self-end">
             <BtnDarkMode theme={theme} value="light" setTheme={setTheme}>
                 <IoSunnyOutline />
             </BtnDarkMode>
