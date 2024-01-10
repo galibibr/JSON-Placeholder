@@ -4,10 +4,10 @@ import BtnDarkMode from "./BtnDarkMode";
 import { useTheme } from "../store/store";
 
 const DarkMode = () => {
-    const theme = useTheme<any>((state: any) => state.theme);
-    const setTheme = useTheme<any>((state: any) => state.setTheme);
+    const theme = useTheme<string>((state: any) => state.theme);
+    const setTheme = useTheme<string>((state: any) => state.setTheme);
     // const [theme, setTheme] = useState(
-    //     localStorage.getItem("theme") ? localStorage.getItem("theme") : "system"
+    //     localStorage.getItem("theme") ? l-ocalStorage.getItem("theme") : "system"
     // );
 
     const element = document.documentElement;

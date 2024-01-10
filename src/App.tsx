@@ -10,9 +10,10 @@ import UsersPage from "./pages/UsersPage";
 import NotFound from "./pages/NotFound";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { useTheme } from "./store/store";
+import { PaletteMode } from "@mui/material";
 
 function App() {
-    const theme = useTheme<any>((state: any) => state.theme);
+    const theme = useTheme<PaletteMode | undefined>((state: any) => state.theme);
     const appTheme = createTheme({
         palette: {
             mode: theme,

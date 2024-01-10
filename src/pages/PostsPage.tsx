@@ -11,11 +11,12 @@ import {
     FormHelperText,
     SelectChangeEvent,
 } from "@mui/material";
+import { TPost } from "../types";
 
 const url = "https://jsonplaceholder.typicode.com/posts?";
 
 const PostsPage = () => {
-    const [posts, setPosts] = useState<any>([]);
+    const [posts, setPosts] = useState<TPost[]>([]);
     const [query, setQuery] = useState<string>("");
     const [page, setPage] = useState<number>(1);
     const [pageQty, setPageQty] = useState<number>(0);
@@ -78,7 +79,7 @@ const PostsPage = () => {
             </div>
             <Stack>
                 {posts.length ? (
-                    posts.map((post: any) => {
+                    posts.map((post: TPost) => {
                         return <p key={post.id}>{post.title}</p>;
                     })
                 ) : (
