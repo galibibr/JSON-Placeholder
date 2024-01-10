@@ -47,11 +47,16 @@ const PostsPage = () => {
                 ) => setQuery(event.target.value)}
             />
             <Stack>
-                {posts.map((post: any) => {
-                    return <p key={post.id}>{post.title}</p>;
-                })}
+                {posts.length ? (
+                    posts.map((post: any) => {
+                        return <p key={post.id}>{post.title}</p>;
+                    })
+                ) : (
+                    <div className="text-center">Loaling...</div>
+                )}
                 {!!pageQty && (
                     <Pagination
+                        siblingCount={0}
                         color="primary"
                         variant="outlined"
                         count={pageQty}
