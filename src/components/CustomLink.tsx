@@ -8,7 +8,7 @@ const CustomLink = ({ to, children }: { to: string; children: string }) => {
             to={to}
             className={`${
                 match ? "underline" : ""
-            } dark:hover:text-[#ededed] hover:text-black duration-150`}>
+            } dark:hover:text-blueDark hover:text-blue duration-150`}>
             {children}
         </Link>
     );

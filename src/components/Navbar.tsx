@@ -45,6 +45,7 @@ const Navbar = () => {
                     <CustomLink to="users">Users</CustomLink>
                 </li>
             </ul>
+            {/* menu modal */}
             <div
                 ref={ref}
                 onClick={myModal}
@@ -52,10 +53,10 @@ const Navbar = () => {
                     modal === "open" && "slow-modal-trans top-0 h-screen"
                 }
                     ${modal === "default" && "-top-[550%]"} ${
-                    modal === "close" && "-top-[500%] slow-modal"
+                    modal === "close" && "-top-[550%] slow-modal"
                 } absolute left-0 w-full z-50`}>
                 <ul
-                    className={`bg-white dark:bg-black w-full flex flex-col items-center gap-1 p-3 shadow-md dark:shadow-[#1c1c1c] dark:border-[#434343]`}>
+                    className={`bg-[#fff] dark:bg-[#000] w-full flex flex-col items-center gap-3 p-[12px_12px_18px] shadow-md dark:shadow-[#1c1c1c] dark:border-[#434343]`}>
                     <li>
                         <button
                             onClick={handleClose}

@@ -1,15 +1,14 @@
-import { useEffect, useState } from "react";
-import {
-    IoSunnyOutline,
-    IoMoonOutline,
-    IoLaptopOutline,
-} from "react-icons/io5";
+import { useEffect } from "react";
+import { IoSunnyOutline, IoMoonOutline } from "react-icons/io5";
 import BtnDarkMode from "./BtnDarkMode";
+import { useTheme } from "../store/store";
 
 const DarkMode = () => {
-    const [theme, setTheme] = useState(
-        localStorage.getItem("theme") ? localStorage.getItem("theme") : "system"
-    );
+    const theme = useTheme<any>((state: any) => state.theme);
+    const setTheme = useTheme<any>((state: any) => state.setTheme);
+    // const [theme, setTheme] = useState(
+    //     localStorage.getItem("theme") ? localStorage.getItem("theme") : "system"
+    // );
 
     const element = document.documentElement;
     const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -52,13 +51,13 @@ const DarkMode = () => {
     });
 
     return (
-        <div className="rounded-full border dark:border-[#4e4e4e] p-[3px] flex justify-self-end">
+        <div className="rounded-full border border-blueBorder dark:border-blueBorderDark p-[3px] flex justify-self-end">
             <BtnDarkMode theme={theme} value="light" setTheme={setTheme}>
                 <IoSunnyOutline />
             </BtnDarkMode>
-            <BtnDarkMode theme={theme} value="" setTheme={setTheme}>
+            {/* <BtnDarkMode theme={theme} value="system" setTheme={setTheme}>
                 <IoLaptopOutline />
-            </BtnDarkMode>
+            </BtnDarkMode> */}
             <BtnDarkMode theme={theme} value="dark" setTheme={setTheme}>
                 <IoMoonOutline />
             </BtnDarkMode>

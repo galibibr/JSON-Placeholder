@@ -15,8 +15,8 @@ const BtnDarkMode = ({
         <button
             className={`${
                 theme === value
-                    ? "bg-gray-100 text-black dark:text-[#ededed] dark:bg-[#454545]"
-                    : "dark:hover:text-[#ededed] hover:text-black"
+                    ? "text-blue dark:text-blueDark bg-blueBg dark:bg-blueBgDark"
+                    : "text-blueBorder dark:text-blueBorderDark hover:text-blue dark:hover:text-blueDark"
             } text-[16px] p-[5px] rounded-full`}
             onClick={() => {
                 setTheme(value);

@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 const Layout = () => {
     return (
-        <div className="dark:bg-black dark:text-[#888888] text-[#666666] min-h-full flex flex-col">
+        <div className="dark:bg-[#000000] dark:text-[#fff] text-[#000] min-h-full flex flex-col">
             <Header />
             <main className="grow-[1] mt-[51px] lg:mt-[55px] px-3 max-w-[1400px] mx-auto w-full">
                 <Outlet />
