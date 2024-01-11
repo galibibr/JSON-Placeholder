@@ -1,18 +1,10 @@
 import CustomLink from "./CustomLink";
-import { IoCloseOutline, IoMenuOutline } from "react-icons/io5";
 import { useModal } from "../store/store";
-import { useState } from "react";
 
 const Navbar = () => {
     const modal = useModal<string>((state) => state.modal);
     const setModal = useModal((state) => state.setModal);
 
-    const handleOpen = () => {
-        setModal("open");
-    };
-    const handleClose = () => {
-        setModal("close");
-    };
     const handleModal = () => {
         if (modal === "default" || modal === "close") {
             setModal("open");
@@ -21,24 +13,10 @@ const Navbar = () => {
         }
     };
 
-    const [menu, setMenu] = useState<boolean>(false);
     return (
         <nav>
-            {/* {modal === "default" || modal === "close" ? (
-                <button
-                    onClick={handleOpen}
-                    className="flex sm:hidden items-center text-[20px]">
-                    <IoMenuOutline />
-                </button>
-            ) : (
-                <button
-                    onClick={handleClose}
-                    className="flex sm:hidden items-center text-[20px]">
-                    <IoCloseOutline />
-                </button>
-            )} */}
             <div
-                className={`menu-container ${
+                className={`menu-container sm:hidden ${
                     modal === "default" || modal === "close" ? "" : "change"
                 }`}
                 onClick={handleModal}>
