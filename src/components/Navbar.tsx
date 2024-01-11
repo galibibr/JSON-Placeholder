@@ -20,9 +20,9 @@ const Navbar = () => {
                     modal === "default" || modal === "close" ? "" : "change"
                 }`}
                 onClick={handleModal}>
-                <div className="bar1"></div>
-                <div className="bar2"></div>
-                <div className="bar3"></div>
+                <div className="bar1 bg-[#000] dark:bg-[#fff]"></div>
+                <div className="bar2 bg-[#000] dark:bg-[#fff]"></div>
+                <div className="bar3 bg-[#000] dark:bg-[#fff]"></div>
             </div>
             <ul className="hidden sm:flex justify-center gap-3">
                 <li>

@@ -44,8 +44,7 @@ body {
 .bar1, .bar2, .bar3 {
     width: 15px;
     height: 1.5px;
-    background-color: #333;
-    transition: 0.7s;
+    transition: transform 0.7s;
     border-radius: 1px;
 }
 /* Rotate first bar */
