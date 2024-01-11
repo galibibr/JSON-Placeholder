@@ -10,6 +10,7 @@ import {
     MenuItem,
     FormHelperText,
     SelectChangeEvent,
+    Skeleton,
 } from "@mui/material";
 import { TPost } from "../types";
 import { Link } from "react-router-dom";
@@ -85,18 +86,29 @@ const PostsPage = () => {
                             <Link
                                 to={`/posts/${post.id}`}
                                 key={post.id}
-                                className="hover:text-blue dark:hover:text-blueDark hover:underline duration-100">
+                                className="hover:text-blue underline dark:hover:text-blueDark hover:underline duration-100">
                                 {post.title}
                             </Link>
                         );
                     })
                 ) : (
-                    <div className="text-center">Loaling...</div>
+                    <div className="flex flex-col gap-[8px]">
+                        <Skeleton />
+                        <Skeleton />
+                        <Skeleton />
+                        <Skeleton />
+                        <Skeleton />
+                        <Skeleton />
+                        <Skeleton />
+                        <Skeleton />
+                        <Skeleton />
+                        <Skeleton />
+                    </div>
                 )}
             </Stack>
             {/* Pagination */}
             <Stack>
-                {!!pageQty && (
+                {!!pageQty ? (
                     <Pagination
                         siblingCount={0}
                         color="primary"
@@ -106,7 +118,7 @@ const PostsPage = () => {
                         onChange={(_, num: number) => setPage(num)}
                         sx={{ marginX: "auto", marginY: 3 }}
                     />
-                )}
+                ) : <Skeleton width={250} height={50} sx={{marginX: 'auto', marginY: 2}}/>}
             </Stack>
         </Container>
     );

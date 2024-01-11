@@ -1,4 +1,4 @@
-import { Button, Container } from "@mui/material";
+import { Button, Container, Skeleton } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
@@ -9,9 +9,9 @@ const Post_page = () => {
     const url = "https://jsonplaceholder.typicode.com/posts?";
     const { id } = useParams<string>();
     const [post, setPost] = useState<TPost | undefined>();
-    const navigate: NavigateFunction = useNavigate()
+    const navigate: NavigateFunction = useNavigate();
 
-    const handleGoBack = () => navigate(-1)
+    const handleGoBack = () => navigate(-1);
 
     async function getPost() {
         try {
@@ -27,9 +27,23 @@ const Post_page = () => {
 
     return (
         <Container className="py-3">
-            <Button variant="outlined" endIcon={<TiArrowBackOutline />} onClick={handleGoBack}>Go back</Button>
-            <p>{post?.title}</p>
-            <p>{post?.body}</p>
+            <Button
+                variant="outlined"
+                endIcon={<TiArrowBackOutline />}
+                onClick={handleGoBack}>
+                Go back
+            </Button>
+            {post ? (
+                <div className="py-3 flex flex-col gap-1">
+                    <p className="text-[20px] font-bold text-center">{post?.title}</p>
+                    <p>{post?.body}</p>
+                </div>
+            ) : (
+                <div className="text-center py-3 flex flex-col gap-1">
+                    <Skeleton />
+                    <Skeleton height={50} />
+                </div>
+            )}
         </Container>
     );
 };
