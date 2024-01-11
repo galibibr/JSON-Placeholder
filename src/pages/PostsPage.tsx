@@ -12,10 +12,10 @@ import {
     SelectChangeEvent,
 } from "@mui/material";
 import { TPost } from "../types";
-
-const url = "https://jsonplaceholder.typicode.com/posts?";
+import { Link } from "react-router-dom";
 
 const PostsPage = () => {
+    const url = "https://jsonplaceholder.typicode.com/posts?";
     const [posts, setPosts] = useState<TPost[]>([]);
     const [query, setQuery] = useState<string>("");
     const [page, setPage] = useState<number>(1);
@@ -64,7 +64,7 @@ const PostsPage = () => {
                         >
                     ) => setQuery(event.target.value)}
                 />
-                <FormControl sx={{ minWidth: 115 }} size="small">
+                <FormControl sx={{ minWidth: 120 }} size="small">
                     <Select
                         value={limit}
                         onChange={handleLimit}
@@ -77,14 +77,25 @@ const PostsPage = () => {
                     <FormHelperText>Items per Page</FormHelperText>
                 </FormControl>
             </div>
-            <Stack>
+            {/* posts list */}
+            <Stack spacing={1}>
                 {posts.length ? (
                     posts.map((post: TPost) => {
-                        return <p key={post.id}>{post.title}</p>;
+                        return (
+                            <Link
+                                to={`/posts/${post.id}`}
+                                key={post.id}
+                                className="hover:text-blue dark:hover:text-blueDark hover:underline duration-100">
+                                {post.title}
+                            </Link>
+                        );
                     })
                 ) : (
                     <div className="text-center">Loaling...</div>
                 )}
+            </Stack>
+            {/* Pagination */}
+            <Stack>
                 {!!pageQty && (
                     <Pagination
                         siblingCount={0}

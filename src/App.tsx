@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { useTheme } from "./store/store";
 import { PaletteMode } from "@mui/material";
+import Post_page from "./pages/Post_page";
 
 function App() {
     const theme = useTheme<PaletteMode | undefined>((state: any) => state.theme);
@@ -32,6 +33,10 @@ function App() {
                 {
                     path: "posts",
                     element: <PostsPage />,
+                },
+                {
+                    path: "posts/:id",
+                    element: <Post_page />,
                 },
                 {
                     path: "comments",
