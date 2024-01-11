@@ -1,10 +1,10 @@
-import { useRef, useState } from "react";
 import CustomLink from "./CustomLink";
 import { IoCloseOutline, IoMenuOutline } from "react-icons/io5";
+import { useModal } from "../store/store";
 
 const Navbar = () => {
-    const [modal, setModal] = useState<string>("default");
-    const ref = useRef(null);
+    const modal = useModal<string>((state) => state.modal);
+    const setModal = useModal((state) => state.setModal);
 
     const handleOpen = () => {
         setModal("open");
@@ -12,19 +12,22 @@ const Navbar = () => {
     const handleClose = () => {
         setModal("close");
     };
-    const myModal = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-        if (event.target === ref.current) {
-            handleClose();
-        }
-    };
 
     return (
         <nav>
-            <button
-                onClick={handleOpen}
-                className="flex sm:hidden items-center text-[20px]">
-                <IoMenuOutline />
-            </button>
+            {modal === "default" || modal === "close" ? (
+                <button
+                    onClick={handleOpen}
+                    className="flex sm:hidden items-center text-[20px]">
+                    <IoMenuOutline />
+                </button>
+            ) : (
+                <button
+                    onClick={handleClose}
+                    className="flex sm:hidden items-center text-[20px]">
+                    <IoCloseOutline />
+                </button>
+            )}
             <ul className="hidden sm:flex justify-center gap-3">
                 <li>
                     <CustomLink to="posts">Posts</CustomLink>
@@ -45,45 +48,6 @@ const Navbar = () => {
                     <CustomLink to="users">Users</CustomLink>
                 </li>
             </ul>
-            {/* menu modal */}
-            <div
-                ref={ref}
-                onClick={myModal}
-                className={`${
-                    modal === "open" && "slow-modal-trans top-0 h-screen"
-                }
-                    ${modal === "default" && "-top-[550%]"} ${
-                    modal === "close" && "-top-[550%] slow-modal"
-                } absolute left-0 w-full z-50`}>
-                <ul
-                    className={`bg-[#fff] dark:bg-[#000] w-full flex flex-col items-center gap-3 p-[12px_12px_18px] shadow-md dark:shadow-[#1c1c1c] dark:border-[#434343]`}>
-                    <li>
-                        <button
-                            onClick={handleClose}
-                            className="flex sm:hidden items-center text-[20px]">
-                            <IoCloseOutline />
-                        </button>
-                    </li>
-                    <li onClick={handleClose}>
-                        <CustomLink to="posts">Posts</CustomLink>
-                    </li>
-                    <li onClick={handleClose}>
-                        <CustomLink to="comments">Comments</CustomLink>
-                    </li>
-                    <li onClick={handleClose}>
-                        <CustomLink to="albums">Albums</CustomLink>
-                    </li>
-                    <li onClick={handleClose}>
-                        <CustomLink to="photos">Photos</CustomLink>
-                    </li>
-                    <li onClick={handleClose}>
-                        <CustomLink to="todos">Todos</CustomLink>
-                    </li>
-                    <li onClick={handleClose}>
-                        <CustomLink to="users">Users</CustomLink>
-                    </li>
-                </ul>
-            </div>
         </nav>
     );
 };

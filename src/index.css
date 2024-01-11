@@ -11,14 +11,14 @@ body {
 
 @keyframes openModal {
     0% {
-        top: -550%;
+        top: -100%;
     }
     100% {
         top: 0;
     }
 }
 .slow-modal-trans {
-    animation: openModal 1s;
+    animation: openModal 0.7s;
 }
 
 @keyframes closeModal {
@@ -26,7 +26,7 @@ body {
         top: 0;
     }
     100% {
-        top: -550%;
+        top: -100%;
     }
 }
 .slow-modal {

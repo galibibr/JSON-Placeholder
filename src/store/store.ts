@@ -7,6 +7,19 @@ export const useTheme: UseBoundStore<StoreApi<unknown>> = create(
             : window.matchMedia("(prefers-color-scheme: dark)")
             ? "dark"
             : "light",
+
+        modal: 'dafault',
+
         setTheme: (value: any) => set(() => ({ theme: value })),
+
+        setModal: (value: string) => set(() => ({ modal: value })),
+    })
+);
+
+export const useModal = create(
+    (set: any) => ({
+        modal: 'default',
+
+        setModal: (value: string) => set(() => ({ modal: value })),
     })
 );

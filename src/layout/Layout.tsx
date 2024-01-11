@@ -1,7 +1,6 @@
 import Header from "../components/Header";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
-
 const Layout = () => {
     return (
         <div className="dark:bg-[#000000] dark:text-[#fff] text-[#000] min-h-full flex flex-col">
