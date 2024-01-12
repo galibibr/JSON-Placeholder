@@ -9,10 +9,10 @@ const Header = () => {
         <>
             <header className="fixed w-full z-20 bg-[#ffffffcc] dark:bg-[#000000cc] backdrop-blur-[5px] backdrop-saturate-[180%] shadow-sm border-b border-[#c8c8c8] dark:border-[#434343]">
                 <Container>
-                    <div className="grid grid-cols-[1fr_1fr] gap-2 py-3 items-center">
-                        {/* <Link to="/" className="justify-self-start">
-                            Logo
-                        </Link> */}
+                    <div className="grid grid-cols-[1fr_auto_1fr] gap-2 py-3 items-center">
+                        <Link to="/" className="justify-self-start">
+                            Home
+                        </Link>
                         <Navbar />
                         <DarkMode />
                     </div>

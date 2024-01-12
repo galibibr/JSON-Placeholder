@@ -24,10 +24,18 @@ const TodosPage = () => {
     const [limit, setLimit] = useState<string>(
         sessionStorage.getItem("limitTodosPage") || "10"
     );
+    const [completed, setCompleted] = useState<string>(
+        sessionStorage.getItem("completed") || "all"
+    );
 
     async function getPageQty() {
         try {
-            const { data } = await axios.get(url + `q=${query}`);
+            const { data } = await axios.get(
+                url +
+                    `q=${query}${
+                        completed !== "all" ? `&completed=${completed}` : ""
+                    }`
+            );
             setPageQty(Math.ceil(data.length / +limit));
         } catch (error) {
             console.log(error);
@@ -36,7 +44,10 @@ const TodosPage = () => {
     async function getTodos() {
         try {
             const { data } = await axios.get(
-                url + `q=${query}&_page=${page}&_limit=${limit}`
+                url +
+                    `q=${query}&_page=${page}&_limit=${limit}${
+                        completed !== "all" ? `&completed=${completed}` : ""
+                    }`
             );
             setTodos(data);
         } catch (error) {
@@ -47,17 +58,22 @@ const TodosPage = () => {
     useEffect(() => {
         getTodos();
         getPageQty();
-    }, [query, page, limit]);
+    }, [query, page, limit, completed]);
 
     const handleLimit = (event: SelectChangeEvent) => {
         sessionStorage.setItem("limitTodosPage", event.target.value);
         setLimit(sessionStorage.getItem("limitTodosPage") || "10");
     };
+    const handleCompleted = (event: SelectChangeEvent) => {
+        sessionStorage.setItem("completed", event.target.value);
+        setCompleted(sessionStorage.getItem("completed") || "all");
+    };
 
     return (
         <Container>
-            <div className="flex gap-3 py-4">
+            <div className="py-4 grid grid-cols-2 sm:grid-cols-[1fr_auto_auto] gap-x-3 gap-y-1">
                 <TextField
+                    className="col-span-2 sm:col-span-1"
                     fullWidth
                     label="query"
                     size="small"
@@ -69,18 +85,24 @@ const TodosPage = () => {
                         >
                     ) => setQuery(event.target.value)}
                 />
-
-                <FormControl sx={{ minWidth: 120 }} size="small">
-                    <Select
-                        value={limit || "10"}
-                        onChange={handleLimit}
-                        displayEmpty
-                        inputProps={{ "aria-label": "Without label" }}>
+                <FormControl className="" sx={{ minWidth: 120 }} size="small">
+                    <Select value={limit || "10"} onChange={handleLimit}>
                         <MenuItem value={10}>10 items</MenuItem>
                         <MenuItem value={20}>20 items</MenuItem>
                         <MenuItem value={30}>30 items</MenuItem>
                     </Select>
                     <FormHelperText>Items per Page</FormHelperText>
+                </FormControl>
+
+                <FormControl sx={{ minWidth: 120 }} size="small">
+                    <Select
+                        value={completed || "all"}
+                        onChange={handleCompleted}>
+                        <MenuItem value={"all"}>All</MenuItem>
+                        <MenuItem value={"true"}>True</MenuItem>
+                        <MenuItem value={"false"}>False</MenuItem>
+                    </Select>
+                    <FormHelperText>Completed</FormHelperText>
                 </FormControl>
             </div>
             {/* todos list */}
@@ -92,13 +114,10 @@ const TodosPage = () => {
                                 to={`/todos/${todo.id}`}
                                 key={todo.id}
                                 className="hover:text-blue flex items-center gap-2 dark:hover:text-blueDark duration-100">
-                                <input
-                                    type="checkbox"
-                                    checked={todo.completed}
-                                />
                                 <p
                                     className={`${
-                                        todo.completed && "line-through text-blue"
+                                        todo.completed &&
+                                        "line-through text-blue"
                                     }`}>
                                     {todo.title}
                                 </p>

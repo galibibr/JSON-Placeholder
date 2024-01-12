@@ -2,26 +2,17 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {
     Container,
-    Pagination,
     TextField,
     Stack,
-    FormControl,
-    Select,
-    MenuItem,
-    FormHelperText,
-    SelectChangeEvent,
     Skeleton,
 } from "@mui/material";
 import { TUser } from "../types";
 import { Link } from "react-router-dom";
 
-import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import Divider from "@mui/material/Divider";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-import Typography from "@mui/material/Typography";
 
 const UsersPage = () => {
     const url = "https://jsonplaceholder.typicode.com/users?";
