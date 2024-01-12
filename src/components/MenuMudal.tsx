@@ -21,7 +21,7 @@ const MenuMudal = () => {
             ref={ref}
             onClick={myModal}
             className={`${
-                modal === "open" && "slow-modal-trans top-[-1px] pt-[60px] min-h-[100vh]"
+                modal === "open" && "slow-modal-trans top-[-2px] pt-[60px] min-h-[100vh]"
             } ${modal === "default" && "-top-[100%]"} ${
                 modal === "close" && "-top-[100%] slow-modal"
             }  left-0 w-full z-10 overflow-hidden fixed `}>

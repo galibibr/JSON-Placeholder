@@ -15,6 +15,8 @@ import Post_page from "./pages/Post_page";
 import Comment_page from "./pages/Comment_page";
 import Album_page from "./pages/Album_page";
 import Photo_page from "./pages/Photo_page";
+import User_page from "./pages/User_page";
+import Todo_page from "./pages/Todo_page";
 
 function App() {
     const theme = useTheme<PaletteMode | undefined>((state: any) => state.theme);
@@ -70,8 +72,16 @@ function App() {
                     element: <TodosPage />,
                 },
                 {
+                    path: "todos/:id",
+                    element: <Todo_page />,
+                },
+                {
                     path: "users",
                     element: <UsersPage />,
+                },
+                {
+                    path: "users/:id",
+                    element: <User_page />,
                 },
                 {
                     path: "*",
