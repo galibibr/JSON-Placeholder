@@ -98,17 +98,17 @@ const CommentsPage = () => {
                         );
                     })
                 ) : (
-                    <div className="flex flex-col gap-[8px]">
-                        <Skeleton />
-                        <Skeleton />
-                        <Skeleton />
-                        <Skeleton />
-                        <Skeleton />
-                        <Skeleton />
-                        <Skeleton />
-                        <Skeleton />
-                        <Skeleton />
-                        <Skeleton />
+                    <div className="">
+                        <Skeleton height={70}/>
+                        <Skeleton height={70}/>
+                        <Skeleton height={70}/>
+                        <Skeleton height={70}/>
+                        <Skeleton height={70}/>
+                        <Skeleton height={70}/>
+                        <Skeleton height={70}/>
+                        <Skeleton height={70}/>
+                        <Skeleton height={70}/>
+                        <Skeleton height={70}/>
                     </div>
                 )}
             </Stack>

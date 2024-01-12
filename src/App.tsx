@@ -13,6 +13,7 @@ import { useTheme } from "./store/store";
 import { PaletteMode } from "@mui/material";
 import Post_page from "./pages/Post_page";
 import Comment_page from "./pages/Comment_page";
+import Album_page from "./pages/Album_page";
 
 function App() {
     const theme = useTheme<PaletteMode | undefined>((state: any) => state.theme);
@@ -50,6 +51,10 @@ function App() {
                 {
                     path: "albums",
                     element: <AlbumsPage />,
+                },
+                {
+                    path: "albums/:id",
+                    element: <Album_page />,
                 },
                 {
                     path: "photos",
