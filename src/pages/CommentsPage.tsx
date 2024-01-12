@@ -83,7 +83,7 @@ const CommentsPage = () => {
                     <FormHelperText>Items per Page</FormHelperText>
                 </FormControl>
             </div>
-            {/* posts list */}
+            {/* comments list */}
             <Stack spacing={1}>
                 {comments.length ? (
                     comments.map((comment: TComment) => {
@@ -98,7 +98,7 @@ const CommentsPage = () => {
                         );
                     })
                 ) : (
-                    <div className="">
+                    <div>
                         <Skeleton height={70}/>
                         <Skeleton height={70}/>
                         <Skeleton height={70}/>

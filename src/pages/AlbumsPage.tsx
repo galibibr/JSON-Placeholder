@@ -83,7 +83,7 @@ const AlbumsPage = () => {
                     <FormHelperText>Items per Page</FormHelperText>
                 </FormControl>
             </div>
-            {/* posts list */}
+            {/* albums list */}
             <Stack spacing={1}>
                 {albums.length ? (
                     albums.map((post: TAlbum) => {
