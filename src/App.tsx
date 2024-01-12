@@ -12,6 +12,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { useTheme } from "./store/store";
 import { PaletteMode } from "@mui/material";
 import Post_page from "./pages/Post_page";
+import Comment_page from "./pages/Comment_page";
 
 function App() {
     const theme = useTheme<PaletteMode | undefined>((state: any) => state.theme);
@@ -41,6 +42,10 @@ function App() {
                 {
                     path: "comments",
                     element: <CommentsPage />,
+                },
+                {
+                    path: "comments/:id",
+                    element: <Comment_page />,
                 },
                 {
                     path: "albums",

@@ -21,7 +21,9 @@ const PostsPage = () => {
     const [query, setQuery] = useState<string>("");
     const [page, setPage] = useState<number>(1);
     const [pageQty, setPageQty] = useState<number>(0);
-    const [limit, setLimit] = useState<string>("10");
+    const [limit, setLimit] = useState<string>(
+        sessionStorage.getItem("limit") || "10"
+    );
 
     async function getPageQty() {
         try {
@@ -48,7 +50,8 @@ const PostsPage = () => {
     }, [query, page, limit]);
 
     const handleLimit = (event: SelectChangeEvent) => {
-        setLimit(event.target.value);
+        sessionStorage.setItem('limit', event.target.value)
+        setLimit(sessionStorage.getItem('limit') || '10')
     };
 
     return (
@@ -59,15 +62,17 @@ const PostsPage = () => {
                     label="query"
                     size="small"
                     value={query}
+                    helperText="Search by query"
                     onChange={(
                         event: React.ChangeEvent<
                             HTMLInputElement | HTMLTextAreaElement
                         >
                     ) => setQuery(event.target.value)}
                 />
+
                 <FormControl sx={{ minWidth: 120 }} size="small">
                     <Select
-                        value={limit}
+                        value={limit || '10'}
                         onChange={handleLimit}
                         displayEmpty
                         inputProps={{ "aria-label": "Without label" }}>
@@ -118,7 +123,13 @@ const PostsPage = () => {
                         onChange={(_, num: number) => setPage(num)}
                         sx={{ marginX: "auto", marginY: 3 }}
                     />
-                ) : <Skeleton width={250} height={50} sx={{marginX: 'auto', marginY: 2}}/>}
+                ) : (
+                    <Skeleton
+                        width={250}
+                        height={50}
+                        sx={{ marginX: "auto", marginY: 2 }}
+                    />
+                )}
             </Stack>
         </Container>
     );
