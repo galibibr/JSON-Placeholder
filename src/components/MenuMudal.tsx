@@ -21,12 +21,12 @@ const MenuMudal = () => {
             ref={ref}
             onClick={myModal}
             className={`${
-                modal === "open" && "slow-modal-trans top-0 pt-[60px] h-screen"
+                modal === "open" && "slow-modal-trans top-[-1px] pt-[60px] min-h-[100vh]"
             } ${modal === "default" && "-top-[100%]"} ${
                 modal === "close" && "-top-[100%] slow-modal"
-            } absolute left-0 w-full z-10`}>
+            }  left-0 w-full z-10 overflow-hidden fixed `}>
             <ul
-                className={`bg-[#fff] dark:bg-[#000] border-b border-[#c8c8c8] dark:border-[#434343] w-full flex flex-col items-center gap-3 p-[12px_12px_18px] shadow-sm dark:shadow-[#161616]`}>
+                className={` bg-[#ffffffcc] dark:bg-[#000000cc] backdrop-blur-[5px] backdrop-saturate-[180%] border-b border-[#c8c8c8] dark:border-[#434343] w-full flex flex-col items-center gap-3 p-[12px_12px_18px] shadow-sm dark:shadow-[#161616]`}>
                 <li onClick={handleClose}>
                     <CustomLink to="posts">Posts</CustomLink>
                 </li>
