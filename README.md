@@ -1,6 +1,6 @@
 # React + TypeScript + Vite
 
-## Preview: json-placeholder-pi.vercel.app/
+## Preview: https://json-placeholder-pi.vercel.app/
 ![](/public/img1.png)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
