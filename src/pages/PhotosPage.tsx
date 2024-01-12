@@ -18,9 +18,7 @@ import {
 import { TPhoto } from "../types";
 import { Link } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
-import Typography from "@mui/material/Typography";
 import ListItemText from "@mui/material/ListItemText";
-import Divider from "@mui/material/Divider";
 
 const PhotosPage = () => {
     const url = "https://jsonplaceholder.typicode.com/photos?";
